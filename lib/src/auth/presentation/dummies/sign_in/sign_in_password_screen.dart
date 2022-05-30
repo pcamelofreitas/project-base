@@ -34,6 +34,7 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
+                  key: _formKey,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   autofocus: true,
