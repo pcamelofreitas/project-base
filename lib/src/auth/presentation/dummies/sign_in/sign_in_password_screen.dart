@@ -12,6 +12,7 @@ class SignInPasswordScreen extends StatefulWidget {
 
 class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   final passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormFieldState>(debugLabel: '_PasswordFormState');
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Passwors'),
+            title: const Center(child: Text('Password')),
             leading: IconButton(
               onPressed: () => context
                   .read<SignInUsecase>()
@@ -32,17 +33,28 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
+                TextFormField(
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
+                  autofocus: true,
                   onChanged: _onChanged,
                   decoration: const InputDecoration(hintText: 'Password'),
                   controller: passwordController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Your password is empty";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    _onContinue();
-                    print(state.signInForm.toJson());
+                    if (_formKey.currentState!.validate()) {
+                      context
+                          .read<SignInUsecase>()
+                          .add(const SubmitSignInForm());
+                    }
                   },
                   child: const Text('Sign In'),
                 ),

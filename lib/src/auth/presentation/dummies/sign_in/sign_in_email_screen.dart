@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
+import 'package:project_base/src/shared/types/form_validator.dart';
 
 class SignInEmailScreen extends StatefulWidget {
   const SignInEmailScreen({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class SignInEmailScreen extends StatefulWidget {
 
 class _SignInEmailScreenState extends State<SignInEmailScreen> {
   final emailController = TextEditingController();
+  final _formKey = GlobalKey<FormFieldState>(debugLabel: '_EmailFormState');
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +34,31 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
+                TextFormField(
+                  key: _formKey,
                   keyboardType: TextInputType.emailAddress,
                   onChanged: _onChanged,
                   decoration: const InputDecoration(hintText: 'Email'),
                   controller: emailController,
+                  autofocus: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Your email address is empty';
+                    } else if (!RegExp(EMAIL_REGEX).hasMatch(value)) {
+                      return 'Your email adress is incorrect ';
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 ElevatedButton(
-                  onPressed: _onContinue,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context
+                          .read<SignInUsecase>()
+                          .add(const ContinueFromEmailScreen());
+                    }
+                  },
                   child: const Text('Continue'),
                 ),
               ],
@@ -57,3 +76,6 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
     context.read<SignInUsecase>().add(const ContinueFromEmailScreen());
   }
 }
+
+const EMAIL_REGEX =
+    r"""^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$""";
