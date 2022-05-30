@@ -7,9 +7,7 @@ part 'onboarding_state.dart';
 part 'onboarding_usecase.freezed.dart';
 
 class OnboardingUsecase extends Bloc<OnboardingEvent, OnboardingState> {
-  OnboardingUsecase({
-    required AuthRepository authRepository,
-  }) : super(OnboardingState.initial()) {
+  OnboardingUsecase() : super(OnboardingState.initial()) {
     on<SignIn>(_onSignIn);
     on<SignUp>(_onSignUp);
     on<_Started>(_onStarted);

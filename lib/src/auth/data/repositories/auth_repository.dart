@@ -55,4 +55,8 @@ class AuthRepository {
       },
     );
   }
+
+  Future<Result<bool>> signOut() async {
+    return const Success(true);
+  }
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'sign_in_bloc.dart';
+part of 'home_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$SignInEvent {
+mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -51,19 +51,18 @@ mixin _$SignInEvent {
 }
 
 /// @nodoc
-abstract class $SignInEventCopyWith<$Res> {
-  factory $SignInEventCopyWith(
-          SignInEvent value, $Res Function(SignInEvent) then) =
-      _$SignInEventCopyWithImpl<$Res>;
+abstract class $HomeEventCopyWith<$Res> {
+  factory $HomeEventCopyWith(HomeEvent value, $Res Function(HomeEvent) then) =
+      _$HomeEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignInEventCopyWithImpl<$Res> implements $SignInEventCopyWith<$Res> {
-  _$SignInEventCopyWithImpl(this._value, this._then);
+class _$HomeEventCopyWithImpl<$Res> implements $HomeEventCopyWith<$Res> {
+  _$HomeEventCopyWithImpl(this._value, this._then);
 
-  final SignInEvent _value;
+  final HomeEvent _value;
   // ignore: unused_field
-  final $Res Function(SignInEvent) _then;
+  final $Res Function(HomeEvent) _then;
 }
 
 /// @nodoc
@@ -74,7 +73,7 @@ abstract class _$$_StartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
+class __$$_StartedCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, (v) => _then(v as _$_Started));
@@ -90,7 +89,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'SignInEvent.started()';
+    return 'HomeEvent.started()';
   }
 
   @override
@@ -159,12 +158,12 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements SignInEvent {
+abstract class _Started implements HomeEvent {
   const factory _Started() = _$_Started;
 }
 
 /// @nodoc
-mixin _$SignInState {
+mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -200,19 +199,18 @@ mixin _$SignInState {
 }
 
 /// @nodoc
-abstract class $SignInStateCopyWith<$Res> {
-  factory $SignInStateCopyWith(
-          SignInState value, $Res Function(SignInState) then) =
-      _$SignInStateCopyWithImpl<$Res>;
+abstract class $HomeStateCopyWith<$Res> {
+  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
+      _$HomeStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
-  _$SignInStateCopyWithImpl(this._value, this._then);
+class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
+  _$HomeStateCopyWithImpl(this._value, this._then);
 
-  final SignInState _value;
+  final HomeState _value;
   // ignore: unused_field
-  final $Res Function(SignInState) _then;
+  final $Res Function(HomeState) _then;
 }
 
 /// @nodoc
@@ -223,7 +221,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, (v) => _then(v as _$_Initial));
@@ -239,7 +237,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'SignInState.initial()';
+    return 'HomeState.initial()';
   }
 
   @override
@@ -308,6 +306,6 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements SignInState {
+abstract class _Initial implements HomeState {
   const factory _Initial() = _$_Initial;
 }
