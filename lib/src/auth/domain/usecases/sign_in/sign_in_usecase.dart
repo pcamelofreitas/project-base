@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:project_base/src/auth/data/repositories/auth_repository.dart';
 import 'package:project_base/src/auth/domain/models/sign_in_form.dart';
-import 'package:project_base/src/shared/errors/app_error.dart';
+// import 'package:project_base/src/shared/errors/app_error.dart';
 import 'package:project_base/src/shared/errors/http_error.dart';
 import 'package:project_base/src/shared/types/maybe.dart';
 import 'package:project_base/src/shared/types/request_status.dart';
@@ -40,8 +40,19 @@ class SignInUsecase extends Bloc<SignInEvent, SignInState> {
   }
 
   void _onContinueFromEmailScreen(
-      ContinueFromEmailScreen event, Emitter<SignInState> emit) {
-    emit(state.copyWith(flow: const PasswordScreen()));
+    ContinueFromEmailScreen event,
+    Emitter<SignInState> emit,
+  ) {
+    // Result<String> emailValidation = state.signInForm.emailValidation;
+
+    // emailValidation.handle(
+    //   onSuccess: (data) {
+    emit(
+      state.copyWith(flow: const PasswordScreen()),
+    );
+    // },
+    // onFailure: (error) => {},
+    // );
   }
 
   void _onPasswordChanged(

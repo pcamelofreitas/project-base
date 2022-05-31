@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:project_base/src/auth/data/repositories/auth_repository.dart';
 import 'package:project_base/src/auth/domain/models/sign_up_form.dart';
-import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
+
 import 'package:project_base/src/shared/types/maybe.dart';
 import 'package:project_base/src/shared/types/request_status.dart';
 import 'package:project_base/src/shared/types/result.dart';

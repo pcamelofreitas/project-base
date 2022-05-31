@@ -6,7 +6,9 @@ import 'package:project_base/src/auth/domain/usecases/sign_up/sign_up_usecase.da
 import 'domain/usecases/sign_in/sign_in_usecase.dart';
 
 void setupAuthDI() {
-  // di.registerFactory(() => OnboardingUsecase(authRepository: di()));
+  di.registerFactory(() => OnboardingUsecase(
+      // authRepository: di()
+      ));
   di.registerFactory(() => SignInUsecase(authRepository: di()));
   di.registerFactory(() => SignUpUsecase(authRepository: di()));
 

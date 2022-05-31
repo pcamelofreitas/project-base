@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:project_base/src/auth/data/repositories/auth_repository.dart';
+// import 'package:project_base/src/auth/data/repositories/auth_repository.dart';
 
 part 'onboarding_event.dart';
 part 'onboarding_state.dart';
