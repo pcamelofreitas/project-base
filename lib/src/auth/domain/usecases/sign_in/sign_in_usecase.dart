@@ -18,12 +18,18 @@ class SignInUsecase extends Bloc<SignInEvent, SignInState> {
   SignInUsecase({required AuthRepository authRepository})
       : _authRepository = authRepository,
         super(SignInState.initial()) {
-    on<EmailChanged>(_onEmailChanged);
-    on<PasswordChanged>(_onPasswordChanged);
-    on<SubmitSignInForm>(_onSubmitSignInForm);
-    on<BackFromEmailScreen>(_onBackFromEmailScreen);
-    on<ContinueFromEmailScreen>(_onContinueFromEmailScreen);
-    on<BackFromPasswordScreen>(_onBackFromPasswordScreen);
+    on<SignInEvent>(
+      (event, emit) => event.map(
+        emailChanged: (event) => _onEmailChanged(event, emit),
+        passwordChanged: (event) => _onPasswordChanged(event, emit),
+        submitSignInForm: (event) => _onSubmitSignInForm(event, emit),
+        backFromEmailScreen: (event) => _onBackFromEmailScreen(event, emit),
+        backFromPasswordScreen: (event) =>
+            _onBackFromPasswordScreen(event, emit),
+        continueFromEmailScreen: (event) =>
+            _onContinueFromEmailScreen(event, emit),
+      ),
+    );
   }
 
   void _onEmailChanged(
@@ -43,16 +49,16 @@ class SignInUsecase extends Bloc<SignInEvent, SignInState> {
     ContinueFromEmailScreen event,
     Emitter<SignInState> emit,
   ) {
-    // Result<String> emailValidation = state.signInForm.emailValidation;
+    Result<String> emailValidation = state.signInForm.emailValidation;
 
-    // emailValidation.handle(
-    //   onSuccess: (data) {
-    emit(
-      state.copyWith(flow: const PasswordScreen()),
+    emailValidation.handle(
+      onSuccess: (data) {
+        emit(
+          state.copyWith(flow: const PasswordScreen()),
+        );
+      },
+      onFailure: (error) => {},
     );
-    // },
-    // onFailure: (error) => {},
-    // );
   }
 
   void _onPasswordChanged(
@@ -82,31 +88,32 @@ class SignInUsecase extends Bloc<SignInEvent, SignInState> {
     SubmitSignInForm event,
     Emitter<SignInState> emit,
   ) async {
-    emit(state.copyWith(signInRequestStatus: const Loading()));
-    try {
-      Result signInRes =
-          await _authRepository.signIn(signInForm: state.signInForm);
+    Result<String> passwordValidation = state.signInForm.passwordValidation;
 
-      signInRes.handle(
-        onFailure: (error) {
-          emit(state.copyWith(
-            signInRequestStatus: Failed(
-              HttpUnknownError(
-                msg: error.toString(),
-              ),
-            ),
-          ));
-        },
-        onSuccess: (data) {
-          emit(state.copyWith(
+    await passwordValidation.handle(
+      onSuccess: (data) async {
+        emit(state.copyWith(signInRequestStatus: const Loading()));
+
+        Result signInRes =
+            await _authRepository.signIn(signInForm: state.signInForm);
+
+        signInRes.handle(
+          onSuccess: (data) => emit(state.copyWith(
             signInRequestStatus: Succeeded(data),
-          ));
-          emit(state.copyWith(flow: const EnterApp()));
-        },
-      );
-    } catch (e) {
-      emit(state.copyWith(
-          signInRequestStatus: Failed(HttpUnknownError(msg: e.toString()))));
-    }
+            flow: const EnterApp(),
+          )),
+          onFailure: (error) {
+            emit(state.copyWith(
+              signInRequestStatus: Failed(
+                HttpUnknownError(
+                  msg: error.toString(),
+                ),
+              ),
+            ));
+          },
+        );
+      },
+      onFailure: (error) {},
+    );
   }
 }

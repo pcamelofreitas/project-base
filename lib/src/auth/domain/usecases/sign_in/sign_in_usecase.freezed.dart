@@ -18,44 +18,37 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SignInEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -64,31 +57,26 @@ mixin _$SignInEvent {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,147 +96,6 @@ class _$SignInEventCopyWithImpl<$Res> implements $SignInEventCopyWith<$Res> {
   final SignInEvent _value;
   // ignore: unused_field
   final $Res Function(SignInEvent) _then;
-}
-
-/// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
-
-  @override
-  _$_Started get _value => super._value as _$_Started;
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'SignInEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(String value) emailChanged,
-    required TResult Function(String value) passwordChanged,
-    required TResult Function() submitSignInForm,
-    required TResult Function() backFromEmailScreen,
-    required TResult Function() backFromPasswordScreen,
-    required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? emailChanged,
-    TResult Function(String value)? passwordChanged,
-    TResult Function()? submitSignInForm,
-    TResult Function()? backFromEmailScreen,
-    TResult Function()? backFromPasswordScreen,
-    TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? emailChanged,
-    TResult Function(String value)? passwordChanged,
-    TResult Function()? submitSignInForm,
-    TResult Function()? backFromEmailScreen,
-    TResult Function()? backFromPasswordScreen,
-    TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(EmailChanged value) emailChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(SubmitSignInForm value) submitSignInForm,
-    required TResult Function(BackFromEmailScreen value) backFromEmailScreen,
-    required TResult Function(BackFromPasswordScreen value)
-        backFromPasswordScreen,
-    required TResult Function(ContinueFromEmailScreen value)
-        continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(SubmitSignInForm value)? submitSignInForm,
-    TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
-    TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
-    TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(SubmitSignInForm value)? submitSignInForm,
-    TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
-    TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
-    TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements SignInEvent {
-  const factory _Started() = _$_Started;
 }
 
 /// @nodoc
@@ -315,14 +162,12 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) {
     return emailChanged(value);
   }
@@ -330,14 +175,12 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) {
     return emailChanged?.call(value);
   }
@@ -345,14 +188,12 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -364,7 +205,6 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -373,7 +213,6 @@ class _$EmailChanged implements EmailChanged {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) {
     return emailChanged(this);
   }
@@ -381,14 +220,12 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) {
     return emailChanged?.call(this);
   }
@@ -396,14 +233,12 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -487,14 +322,12 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) {
     return passwordChanged(value);
   }
@@ -502,14 +335,12 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) {
     return passwordChanged?.call(value);
   }
@@ -517,14 +348,12 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -536,7 +365,6 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -545,7 +373,6 @@ class _$PasswordChanged implements PasswordChanged {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) {
     return passwordChanged(this);
   }
@@ -553,14 +380,12 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) {
     return passwordChanged?.call(this);
   }
@@ -568,14 +393,12 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -635,14 +458,12 @@ class _$SubmitSignInForm implements SubmitSignInForm {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) {
     return submitSignInForm();
   }
@@ -650,14 +471,12 @@ class _$SubmitSignInForm implements SubmitSignInForm {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) {
     return submitSignInForm?.call();
   }
@@ -665,14 +484,12 @@ class _$SubmitSignInForm implements SubmitSignInForm {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) {
     if (submitSignInForm != null) {
@@ -684,7 +501,6 @@ class _$SubmitSignInForm implements SubmitSignInForm {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -693,7 +509,6 @@ class _$SubmitSignInForm implements SubmitSignInForm {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) {
     return submitSignInForm(this);
   }
@@ -701,14 +516,12 @@ class _$SubmitSignInForm implements SubmitSignInForm {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) {
     return submitSignInForm?.call(this);
   }
@@ -716,14 +529,12 @@ class _$SubmitSignInForm implements SubmitSignInForm {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) {
     if (submitSignInForm != null) {
@@ -778,14 +589,12 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) {
     return backFromEmailScreen();
   }
@@ -793,14 +602,12 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) {
     return backFromEmailScreen?.call();
   }
@@ -808,14 +615,12 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) {
     if (backFromEmailScreen != null) {
@@ -827,7 +632,6 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -836,7 +640,6 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) {
     return backFromEmailScreen(this);
   }
@@ -844,14 +647,12 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) {
     return backFromEmailScreen?.call(this);
   }
@@ -859,14 +660,12 @@ class _$BackFromEmailScreen implements BackFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) {
     if (backFromEmailScreen != null) {
@@ -922,14 +721,12 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) {
     return backFromPasswordScreen();
   }
@@ -937,14 +734,12 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) {
     return backFromPasswordScreen?.call();
   }
@@ -952,14 +747,12 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) {
     if (backFromPasswordScreen != null) {
@@ -971,7 +764,6 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -980,7 +772,6 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) {
     return backFromPasswordScreen(this);
   }
@@ -988,14 +779,12 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) {
     return backFromPasswordScreen?.call(this);
   }
@@ -1003,14 +792,12 @@ class _$BackFromPasswordScreen implements BackFromPasswordScreen {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) {
     if (backFromPasswordScreen != null) {
@@ -1067,14 +854,12 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String value) emailChanged,
     required TResult Function(String value) passwordChanged,
     required TResult Function() submitSignInForm,
     required TResult Function() backFromEmailScreen,
     required TResult Function() backFromPasswordScreen,
     required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
   }) {
     return continueFromEmailScreen();
   }
@@ -1082,14 +867,12 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
   }) {
     return continueFromEmailScreen?.call();
   }
@@ -1097,14 +880,12 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String value)? emailChanged,
     TResult Function(String value)? passwordChanged,
     TResult Function()? submitSignInForm,
     TResult Function()? backFromEmailScreen,
     TResult Function()? backFromPasswordScreen,
     TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
     required TResult orElse(),
   }) {
     if (continueFromEmailScreen != null) {
@@ -1116,7 +897,6 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SubmitSignInForm value) submitSignInForm,
@@ -1125,7 +905,6 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
         backFromPasswordScreen,
     required TResult Function(ContinueFromEmailScreen value)
         continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
   }) {
     return continueFromEmailScreen(this);
   }
@@ -1133,14 +912,12 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
   }) {
     return continueFromEmailScreen?.call(this);
   }
@@ -1148,14 +925,12 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SubmitSignInForm value)? submitSignInForm,
     TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
     TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
     TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
     required TResult orElse(),
   }) {
     if (continueFromEmailScreen != null) {
@@ -1167,148 +942,6 @@ class _$ContinueFromEmailScreen implements ContinueFromEmailScreen {
 
 abstract class ContinueFromEmailScreen implements SignInEvent {
   const factory ContinueFromEmailScreen() = _$ContinueFromEmailScreen;
-}
-
-/// @nodoc
-abstract class _$$EnterTheAppCopyWith<$Res> {
-  factory _$$EnterTheAppCopyWith(
-          _$EnterTheApp value, $Res Function(_$EnterTheApp) then) =
-      __$$EnterTheAppCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterTheAppCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
-    implements _$$EnterTheAppCopyWith<$Res> {
-  __$$EnterTheAppCopyWithImpl(
-      _$EnterTheApp _value, $Res Function(_$EnterTheApp) _then)
-      : super(_value, (v) => _then(v as _$EnterTheApp));
-
-  @override
-  _$EnterTheApp get _value => super._value as _$EnterTheApp;
-}
-
-/// @nodoc
-
-class _$EnterTheApp implements EnterTheApp {
-  const _$EnterTheApp();
-
-  @override
-  String toString() {
-    return 'SignInEvent.enterTheApp()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterTheApp);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(String value) emailChanged,
-    required TResult Function(String value) passwordChanged,
-    required TResult Function() submitSignInForm,
-    required TResult Function() backFromEmailScreen,
-    required TResult Function() backFromPasswordScreen,
-    required TResult Function() continueFromEmailScreen,
-    required TResult Function() enterTheApp,
-  }) {
-    return enterTheApp();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? emailChanged,
-    TResult Function(String value)? passwordChanged,
-    TResult Function()? submitSignInForm,
-    TResult Function()? backFromEmailScreen,
-    TResult Function()? backFromPasswordScreen,
-    TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
-  }) {
-    return enterTheApp?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? emailChanged,
-    TResult Function(String value)? passwordChanged,
-    TResult Function()? submitSignInForm,
-    TResult Function()? backFromEmailScreen,
-    TResult Function()? backFromPasswordScreen,
-    TResult Function()? continueFromEmailScreen,
-    TResult Function()? enterTheApp,
-    required TResult orElse(),
-  }) {
-    if (enterTheApp != null) {
-      return enterTheApp();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(EmailChanged value) emailChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(SubmitSignInForm value) submitSignInForm,
-    required TResult Function(BackFromEmailScreen value) backFromEmailScreen,
-    required TResult Function(BackFromPasswordScreen value)
-        backFromPasswordScreen,
-    required TResult Function(ContinueFromEmailScreen value)
-        continueFromEmailScreen,
-    required TResult Function(EnterTheApp value) enterTheApp,
-  }) {
-    return enterTheApp(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(SubmitSignInForm value)? submitSignInForm,
-    TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
-    TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
-    TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
-  }) {
-    return enterTheApp?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(SubmitSignInForm value)? submitSignInForm,
-    TResult Function(BackFromEmailScreen value)? backFromEmailScreen,
-    TResult Function(BackFromPasswordScreen value)? backFromPasswordScreen,
-    TResult Function(ContinueFromEmailScreen value)? continueFromEmailScreen,
-    TResult Function(EnterTheApp value)? enterTheApp,
-    required TResult orElse(),
-  }) {
-    if (enterTheApp != null) {
-      return enterTheApp(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterTheApp implements SignInEvent {
-  const factory EnterTheApp() = _$EnterTheApp;
 }
 
 /// @nodoc

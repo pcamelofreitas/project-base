@@ -16,6 +16,7 @@ class FormUtils {
         nothing: () => '',
         just: (val) => val != null ? val.toString() : '',
       ));
+
       if (error != null) errorMsgs.add(error);
     }
 

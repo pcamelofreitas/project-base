@@ -95,7 +95,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
     }
   }
 
-  void _onChanged(String email, context) =>
+  void _onChanged(String email, BuildContext context) =>
       context.read<SignInUsecase>().add(EmailChanged(email));
 
   // void _onContinue(BuildContext context) {
