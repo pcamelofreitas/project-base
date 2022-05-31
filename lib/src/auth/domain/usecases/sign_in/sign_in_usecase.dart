@@ -106,7 +106,7 @@ class SignInUsecase extends Bloc<SignInEvent, SignInState> {
             emit(state.copyWith(
               signInRequestStatus: Failed(
                 HttpUnknownError(
-                  msg: error.toString(),
+                  msg: 'Sign in failed check your credentials',
                 ),
               ),
             ));

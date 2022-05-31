@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
+import 'package:project_base/src/shared/presentation/widgets/snack_bar.dart';
 
 class SignInPasswordScreen extends StatefulWidget {
   const SignInPasswordScreen({Key? key}) : super(key: key);
@@ -16,7 +17,8 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInUsecase, SignInState>(
+    return BlocConsumer<SignInUsecase, SignInState>(
+      listener: _listener,
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -63,6 +65,15 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
             ),
           ),
         );
+      },
+    );
+  }
+
+  void _listener(BuildContext context, SignInState state) {
+    state.signInRequestStatus.maybeMap(
+      orElse: () {},
+      failed: (error) {
+        BaseSnackBar.showNotification(error);
       },
     );
   }

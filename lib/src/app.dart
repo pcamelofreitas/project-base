@@ -7,6 +7,7 @@ import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.da
 import 'package:project_base/src/auth/domain/usecases/sign_up/sign_up_usecase.dart';
 import 'package:project_base/src/auth/presentation/smarties/onboarding_smart_view.dart';
 import 'package:project_base/src/home/domain/usecases/bloc/home_bloc.dart';
+import 'package:project_base/src/shared/presentation/widgets/snack_bar.dart';
 
 class BaseApp extends StatefulWidget {
   final AuthRepository _authRepository;
@@ -37,9 +38,10 @@ class _BaseAppState extends State<BaseApp> {
                 SignUpUsecase(authRepository: widget._authRepository)),
         BlocProvider(create: (context) => HomeBloc())
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'project_base',
-        home: OnboardingSmartView(),
+        home: const OnboardingSmartView(),
+        scaffoldMessengerKey: BaseSnackBar.scaffoldMessengerStateKey,
       ),
     );
   }

@@ -36,9 +36,9 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
           appBar: AppBar(
             title: const Text('Email'),
             leading: IconButton(
-              onPressed: () => context
-                  .read<SignInUsecase>()
-                  .add(const BackFromEmailScreen()),
+              onPressed: () {
+                context.read<SignInUsecase>().add(const BackFromEmailScreen());
+              },
               icon: const Icon(Icons.arrow_back),
             ),
           ),
