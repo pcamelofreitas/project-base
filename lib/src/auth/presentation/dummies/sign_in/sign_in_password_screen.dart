@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
+import 'package:project_base/src/shared/domain/models/base_text_controller.dart';
+import 'package:project_base/src/shared/domain/models/base_text_field.dart';
 import 'package:project_base/src/shared/presentation/widgets/snack_bar.dart';
+import 'package:project_base/src/shared/types/form_validator.dart';
 
 class SignInPasswordScreen extends StatefulWidget {
   const SignInPasswordScreen({Key? key}) : super(key: key);
@@ -12,8 +15,16 @@ class SignInPasswordScreen extends StatefulWidget {
 }
 
 class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
-  final passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormFieldState>(debugLabel: '_PasswordFormState');
+  late final BaseTextFieldController controller;
+
+  @override
+  void initState() {
+    controller = BaseTextFieldController(
+      "",
+      validators: FormValidators.password,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,30 +46,15 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFormField(
-                  key: _formKey,
+                BaseTextField(
+                  hintText: "Password",
                   keyboardType: TextInputType.visiblePassword,
-                  obscureText: true,
-                  autofocus: true,
-                  onChanged: _onChanged,
-                  decoration: const InputDecoration(hintText: 'Password'),
-                  controller: passwordController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Your password is empty";
-                    } else {
-                      return null;
-                    }
-                  },
+                  controller: controller,
+                  onSubmitted: (value) => _onContinue(context),
+                  onChanged: (value) => _onChanged(value, context),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      context
-                          .read<SignInUsecase>()
-                          .add(const SubmitSignInForm());
-                    }
-                  },
+                  onPressed: () => _onContinue(context),
                   child: const Text('Sign In'),
                 ),
               ],
@@ -78,10 +74,11 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
     );
   }
 
-  void _onChanged(String email) =>
-      context.read<SignInUsecase>().add(PasswordChanged(email));
+  void _onChanged(String password, BuildContext context) =>
+      context.read<SignInUsecase>().add(PasswordChanged(password));
 
-  void _onContinue() {
+  void _onContinue(BuildContext context) {
+    controller.showValidationState();
     context.read<SignInUsecase>().add(const SubmitSignInForm());
   }
 }

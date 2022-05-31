@@ -14,19 +14,16 @@ class SignInEmailScreen extends StatefulWidget {
 }
 
 class _SignInEmailScreenState extends State<SignInEmailScreen> {
-  final emailController = TextEditingController();
-  final _formKey = GlobalKey<FormFieldState>(debugLabel: '_EmailFormState');
+  late final BaseTextFieldController controller;
 
-  // late final BaseTextFieldController controller;
-
-  // @override
-  // void initState() {
-  //   controller = BaseTextFieldController(
-  //     "",
-  //     validators: FormValidators.email,
-  //   );
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    controller = BaseTextFieldController(
+      "",
+      validators: FormValidators.email,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,33 +44,19 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // BaseTextField(
-                //   hintText: "Email",
-                //   controller: controller,
-                //   onSubmitted: (value) => _onContinue(context),
-                //   onChanged: (value) => _onChanged(value, context),
-                // ),
-                TextFormField(
-                  key: _formKey,
-                  keyboardType: TextInputType.emailAddress,
+                BaseTextField(
+                  hintText: "Email",
+                  controller: controller,
+                  onSubmitted: (value) => _onContinue(context),
                   onChanged: (value) => _onChanged(value, context),
-                  decoration: const InputDecoration(hintText: 'Email'),
-                  controller: emailController,
-                  autofocus: true,
-                  validator: _validation,
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      context
-                          .read<SignInUsecase>()
-                          .add(const ContinueFromEmailScreen());
-                    }
-                    // controller.showValidationState();
+                    controller.showValidationState();
 
-                    // context
-                    //     .read<SignInUsecase>()
-                    //     .add(const ContinueFromEmailScreen());
+                    context
+                        .read<SignInUsecase>()
+                        .add(const ContinueFromEmailScreen());
                   },
                   child: const Text('Continue'),
                 ),
@@ -85,25 +68,15 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
     );
   }
 
-  String? _validation(value) {
-    if (value!.isEmpty) {
-      return 'Your email address is empty';
-    } else if (!RegExp(EMAIL_REGEX).hasMatch(value)) {
-      return 'Your email adress is incorrect ';
-    } else {
-      return null;
-    }
-  }
-
   void _onChanged(String email, BuildContext context) =>
       context.read<SignInUsecase>().add(EmailChanged(email));
 
-  // void _onContinue(BuildContext context) {
-  //   controller.showValidationState();
+  void _onContinue(BuildContext context) {
+    controller.showValidationState();
 
-  //   context.read<SignInUsecase>().add(const ContinueFromEmailScreen());
-  // }
+    context.read<SignInUsecase>().add(const ContinueFromEmailScreen());
+  }
 }
 
-const EMAIL_REGEX =
-    r"""^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$""";
+// const EMAIL_REGEX =
+//     r"""^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$""";

@@ -18,9 +18,9 @@ class FormValidators {
 
   static List<String? Function(String)> password = [
     (String val) => (val.isEmpty) ? GENERIC_MANDATORY_FIELD_MSG : null,
-    // (String value) => value.isNotEmpty && value.length < 8
-    //     ? 'Password must have at least 8 characters'
-    //     : null,
+    (String value) => value.isNotEmpty && value.length < 8
+        ? 'Password must have at least 8 characters'
+        : null,
   ];
 
   static List<String? Function(String, String)> passwordIsEqual = [
