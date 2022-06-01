@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:project_base/src/shared/domain/models/base_text_controller.dart';
 import 'package:rxdart/rxdart.dart';
 
-enum SUFFIX { None, Eye, Close, Copy }
+enum SUFFIX { none, eye, close, copy }
 
 class BaseTextField extends StatefulWidget {
   final String hintText;
@@ -82,11 +82,14 @@ class _BaseTextFieldState extends State<BaseTextField> {
         return Theme(
           data: generateTheme(context, state),
           child: TextField(
+            onTap: () {
+              controller.markAsTouched();
+            },
             onChanged: (String value) {
               if (widget.onChanged != null) {
                 widget.onChanged!(value);
               }
-              // decoration
+              controller.internalOnChanged(value);
             },
             enabled: widget.enabled,
             textCapitalization: widget.textCapitalization,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_base/dependency_injector.dart';
+import 'package:project_base/src/auth/data/repositories/auth_repository.dart';
 import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
 import 'package:project_base/src/auth/presentation/dummies/sign_in/sign_in_email_screen.dart';
 import 'package:project_base/src/auth/presentation/dummies/sign_in/sign_in_password_screen.dart';
@@ -16,13 +18,21 @@ class SignInSmartView extends StatefulWidget {
 
 class _SignInSmartViewState extends State<SignInSmartView> {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => SignInUsecase(authRepository: di<AuthRepository>()),
+      child: _builder(context),
+    );
+  }
+
+  Widget _builder(BuildContext context) {
     return BlocConsumer<SignInUsecase, SignInState>(
-      listenWhen: (previous, current) => previous.flow != current.flow,
+      listenWhen: (SignInState previous, SignInState current) =>
+          previous.flow != current.flow,
       listener: (context, state) {
         state.flow.maybeMap(
-          orElse: () {},
           closeFlow: (_) {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
@@ -30,14 +40,7 @@ class _SignInSmartViewState extends State<SignInSmartView> {
               (route) => false,
             );
           },
-          emailScreen: (_) {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const SignInEmailScreen()));
-          },
-          passwordScreen: (_) {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const SignInPasswordScreen()));
-          },
+          orElse: () {},
           enterApp: (_) {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
@@ -51,7 +54,18 @@ class _SignInSmartViewState extends State<SignInSmartView> {
       builder: (context, state) {
         return Navigator(
           key: navigatorKey,
-          pages: const [MaterialPage(child: SignInEmailScreen())],
+          pages: state.flow.maybeWhen(
+            orElse: () => [
+              MaterialPage(child: Container()),
+            ],
+            emailScreen: () => const [
+              MaterialPage(child: SignInEmailScreen()),
+            ],
+            passwordScreen: () => const [
+              MaterialPage(child: SignInEmailScreen()),
+              MaterialPage(child: SignInPasswordScreen()),
+            ],
+          ),
           onPopPage: (route, result) {
             if (route.navigator?.canPop() == false) {
               Navigator.of(context).pop();

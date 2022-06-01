@@ -1,3 +1,5 @@
+// ignore_for_file: hash_and_equals
+
 abstract class AppError {
   final String slug;
   final String msg;

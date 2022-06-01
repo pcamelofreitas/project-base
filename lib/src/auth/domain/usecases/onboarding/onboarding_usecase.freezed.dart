@@ -40,21 +40,21 @@ mixin _$OnboardingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUp value) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
     required TResult orElse(),
@@ -80,26 +80,25 @@ class _$OnboardingEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedCopyWith<$Res> {
+  factory _$$StartedCopyWith(_$Started value, $Res Function(_$Started) then) =
+      __$$StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$OnboardingEventCopyWithImpl<$Res>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
+class __$$StartedCopyWithImpl<$Res> extends _$OnboardingEventCopyWithImpl<$Res>
+    implements _$$StartedCopyWith<$Res> {
+  __$$StartedCopyWithImpl(_$Started _value, $Res Function(_$Started) _then)
+      : super(_value, (v) => _then(v as _$Started));
 
   @override
-  _$_Started get _value => super._value as _$_Started;
+  _$Started get _value => super._value as _$Started;
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$Started implements Started {
+  const _$Started();
 
   @override
   String toString() {
@@ -109,7 +108,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$Started);
   }
 
   @override
@@ -152,7 +151,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUp value) signUp,
   }) {
@@ -162,7 +161,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
   }) {
@@ -172,7 +171,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
     required TResult orElse(),
@@ -184,8 +183,8 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements OnboardingEvent {
-  const factory _Started() = _$_Started;
+abstract class Started implements OnboardingEvent {
+  const factory Started() = _$Started;
 }
 
 /// @nodoc
@@ -260,7 +259,7 @@ class _$SignIn implements SignIn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUp value) signUp,
   }) {
@@ -270,7 +269,7 @@ class _$SignIn implements SignIn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
   }) {
@@ -280,7 +279,7 @@ class _$SignIn implements SignIn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
     required TResult orElse(),
@@ -368,7 +367,7 @@ class _$SignUp implements SignUp {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUp value) signUp,
   }) {
@@ -378,7 +377,7 @@ class _$SignUp implements SignUp {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
   }) {
@@ -388,7 +387,7 @@ class _$SignUp implements SignUp {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUp value)? signUp,
     required TResult orElse(),

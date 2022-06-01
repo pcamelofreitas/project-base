@@ -145,7 +145,7 @@ class SignUpUsecase extends Bloc<SignUpEvent, SignUpState> {
     SubmitSignUpForm event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(state.copyWith(signUpRequestStatus: Loading()));
+    emit(state.copyWith(signUpRequestStatus: const Loading()));
     try {
       Result signUpRes =
           await _authRepository.signUp(signUpForm: state.signUpForm);
@@ -153,6 +153,8 @@ class SignUpUsecase extends Bloc<SignUpEvent, SignUpState> {
         onSuccess: (_) {},
         onFailure: (_) {},
       );
-    } catch (e) {}
+    } catch (e) {
+      null;
+    }
   }
 }

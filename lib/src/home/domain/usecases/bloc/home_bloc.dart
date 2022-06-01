@@ -6,9 +6,7 @@ part 'home_state.dart';
 part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(_Initial()) {
-    on<HomeEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  HomeBloc() : super(const _Initial()) {
+    on<HomeEvent>((event, emit) {});
   }
 }

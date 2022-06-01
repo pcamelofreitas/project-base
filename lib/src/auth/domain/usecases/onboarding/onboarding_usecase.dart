@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-// import 'package:project_base/src/auth/data/repositories/auth_repository.dart';
 
 part 'onboarding_event.dart';
 part 'onboarding_state.dart';
@@ -10,7 +9,7 @@ class OnboardingUsecase extends Bloc<OnboardingEvent, OnboardingState> {
   OnboardingUsecase() : super(OnboardingState.initial()) {
     on<SignIn>(_onSignIn);
     on<SignUp>(_onSignUp);
-    on<_Started>(_onStarted);
+    on<Started>(_onStarted);
   }
 
   void _onSignIn(
@@ -28,7 +27,7 @@ class OnboardingUsecase extends Bloc<OnboardingEvent, OnboardingState> {
   }
 
   void _onStarted(
-    _Started event,
+    Started event,
     Emitter<OnboardingState> emit,
   ) async {
     emit(state.copyWith(flow: const Onboarding()));

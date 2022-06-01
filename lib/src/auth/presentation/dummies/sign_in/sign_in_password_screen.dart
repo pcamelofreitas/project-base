@@ -29,6 +29,8 @@ class _SignInPasswordScreenState extends State<SignInPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInUsecase, SignInState>(
+      listenWhen: (previous, current) =>
+          previous.signInRequestStatus != current.signInRequestStatus,
       listener: _listener,
       builder: (context, state) {
         return Scaffold(
