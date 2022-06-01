@@ -1,21 +1,28 @@
-class SignInForm {
-  String? email;
-  String? password;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:project_base/src/shared/types/form_field.dart';
+import 'package:project_base/src/shared/types/form_utils.dart';
+import 'package:project_base/src/shared/types/form_validator.dart';
+import 'package:project_base/src/shared/types/result.dart';
 
-  SignInForm({
-    this.email,
-    this.password,
-  });
+part 'sign_in_form.freezed.dart';
 
-  SignInForm.fromJson(Map<String, dynamic> json) {
-    email = json['email'];
-    password = json['password'];
-  }
+@freezed
+class SignInForm with _$SignInForm, FormUtils {
+  const SignInForm._();
+  const factory SignInForm({
+    @Default(FormField<String>(name: 'email')) FormField<String> email,
+    @Default(FormField<String>(name: 'password')) FormField<String> password,
+  }) = _SignInForm;
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['email'] = email;
-    data['password'] = password;
-    return data;
-  }
+  Result<String> get emailValidation => validateField(
+        field: email.field,
+        validators: FormValidators.email,
+      );
+
+  Result<String> get passwordValidation => validateField(
+        field: password.field,
+        validators: FormValidators.password,
+      );
+
+  Map<String, dynamic> toJson() => fieldsToJson([email, password]);
 }

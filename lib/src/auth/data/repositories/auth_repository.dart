@@ -1,6 +1,5 @@
 import 'package:project_base/src/auth/domain/models/sign_in_form.dart';
 import 'package:project_base/src/shared/data/repositories/api_repository.dart';
-import 'package:project_base/src/shared/errors/app_error.dart';
 import 'package:project_base/src/shared/errors/http_error.dart';
 import 'package:project_base/src/shared/types/result.dart';
 
@@ -54,5 +53,9 @@ class AuthRepository {
         return Failure(error);
       },
     );
+  }
+
+  Future<Result<bool>> signOut() async {
+    return const Success(true);
   }
 }

@@ -17,8 +17,16 @@ class OnboardingSmartView extends StatefulWidget {
 
 class _OnboardingSmartViewState extends State<OnboardingSmartView> {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => OnboardingUsecase(),
+      child: _builder(context),
+    );
+  }
+
+  Widget _builder(BuildContext context) {
     return BlocConsumer<OnboardingUsecase, OnboardingState>(
       listenWhen: (previous, current) => previous.flow != current.flow,
       listener: (context, state) {

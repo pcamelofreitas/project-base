@@ -26,16 +26,12 @@ class OnboardingScreen extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        //TODO: LOGIN FUNCTION IMPLEMENT
-                        //usecase.onSignInPressed;
                         context.read<OnboardingUsecase>().add(const SignIn());
                       },
                       child: const Text('Sign In'),
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        //TODO: REGISTER FUNCTION IMPLEMENT
-                        //usecase.onSignUpPressed
                         context.read<OnboardingUsecase>().add(const SignUp());
                       },
                       child: const Text('Sign Up'),
