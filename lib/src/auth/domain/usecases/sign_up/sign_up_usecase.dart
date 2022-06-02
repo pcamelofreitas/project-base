@@ -147,7 +147,15 @@ class SignUpUsecase extends Bloc<SignUpEvent, SignUpState> {
     ContinueFromConfirmPasswordScreen event,
     Emitter<SignUpState> emit,
   ) {
-    emit(state.copyWith(flow: const NameScreen()));
+    Result<String> confirmPasswordValidation =
+        state.signUpForm.confirmPasswordValidation;
+
+    confirmPasswordValidation.handle(
+      onSuccess: (data) {
+        emit(state.copyWith(flow: const NameScreen()));
+      },
+      onFailure: (_) {},
+    );
   }
 
   Future<void> _onSubmitSignUpForm(

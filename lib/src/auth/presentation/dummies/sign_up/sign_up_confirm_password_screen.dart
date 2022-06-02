@@ -20,10 +20,10 @@ class _SignUpConfirmPasswordScreenState
 
   @override
   void initState() {
+    final SignUpState state = context.read<SignUpUsecase>().state;
     controller = BaseTextFieldController(
-      "",
-      validators: FormValidators.password,
-    );
+        state.signUpForm.confirmPassword.field.getOrElse(''),
+        equalsTo: state.signUpForm.password.field.getOrElse(''));
     super.initState();
   }
 
