@@ -40,7 +40,6 @@ class _SignInSmartViewState extends State<SignInSmartView> {
               (route) => false,
             );
           },
-          orElse: () {},
           enterApp: (_) {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
@@ -49,6 +48,7 @@ class _SignInSmartViewState extends State<SignInSmartView> {
               (route) => false,
             );
           },
+          orElse: () {},
         );
       },
       builder: (context, state) {
