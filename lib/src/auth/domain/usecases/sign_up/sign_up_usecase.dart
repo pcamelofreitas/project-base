@@ -131,30 +131,65 @@ class SignUpUsecase extends Bloc<SignUpEvent, SignUpState> {
     ContinueFromPasswordScreen event,
     Emitter<SignUpState> emit,
   ) {
-    emit(state.copyWith(flow: const ConfirmPasswordScreen()));
+    Result<String> passwordValidation = state.signUpForm.passwordValidation;
+
+    passwordValidation.handle(
+      onSuccess: (data) => emit(
+        state.copyWith(
+          flow: const ConfirmPasswordScreen(),
+        ),
+      ),
+      onFailure: (_) {},
+    );
   }
 
   void _onContinueFromConfirmPasswordScreen(
     ContinueFromConfirmPasswordScreen event,
     Emitter<SignUpState> emit,
   ) {
-    emit(state.copyWith(flow: const NameScreen()));
+    Result<String> confirmPasswordValidation =
+        state.signUpForm.confirmPasswordValidation;
+
+    confirmPasswordValidation.handle(
+      onSuccess: (data) {
+        emit(state.copyWith(flow: const NameScreen()));
+      },
+      onFailure: (_) {},
+    );
   }
 
   Future<void> _onSubmitSignUpForm(
     SubmitSignUpForm event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(state.copyWith(signUpRequestStatus: const Loading()));
-    try {
-      Result signUpRes =
-          await _authRepository.signUp(signUpForm: state.signUpForm);
-      signUpRes.handle(
-        onSuccess: (_) {},
-        onFailure: (_) {},
-      );
-    } catch (e) {
-      null;
-    }
+    Result<String> nameValidation = state.signUpForm.nameValidation;
+
+    await nameValidation.handle(
+      onSuccess: (data) async {
+        emit(state.copyWith(signUpRequestStatus: const Loading()));
+
+        Result signUpRes =
+            await _authRepository.signUp(signUpForm: state.signUpForm);
+
+        signUpRes.handle(
+          onSuccess: (data) {
+            emit(
+              state.copyWith(
+                signUpRequestStatus: Succeeded(data),
+                flow: const EnterApp(),
+              ),
+            );
+          },
+          onFailure: (error) {
+            emit(
+              state.copyWith(
+                signUpRequestStatus: Failed(error),
+              ),
+            );
+          },
+        );
+      },
+      onFailure: (_) {},
+    );
   }
 }

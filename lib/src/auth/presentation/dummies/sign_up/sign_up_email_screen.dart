@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
+import 'package:project_base/src/auth/domain/usecases/sign_up/sign_up_usecase.dart';
 import 'package:project_base/src/shared/domain/models/base_text_controller.dart';
 import 'package:project_base/src/shared/domain/models/base_text_field.dart';
 import 'package:project_base/src/shared/types/form_validator.dart';
 
-class SignInEmailScreen extends StatefulWidget {
-  const SignInEmailScreen({Key? key}) : super(key: key);
+class SignUpEmailScreen extends StatefulWidget {
+  const SignUpEmailScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignInEmailScreen> createState() => _SignInEmailScreenState();
+  State<SignUpEmailScreen> createState() => _SignUpEmailScreenState();
 }
 
-class _SignInEmailScreenState extends State<SignInEmailScreen> {
+class _SignUpEmailScreenState extends State<SignUpEmailScreen> {
   late final BaseTextFieldController controller;
 
   @override
@@ -27,14 +26,14 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInUsecase, SignInState>(
+    return BlocBuilder<SignUpUsecase, SignUpState>(
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title: const Text('Email'),
             leading: IconButton(
               onPressed: () {
-                context.read<SignInUsecase>().add(const BackFromEmailScreen());
+                context.read<SignUpUsecase>().add(const BackFromEmailScreen());
               },
               icon: const Icon(Icons.arrow_back),
             ),
@@ -63,11 +62,11 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
   }
 
   void _onChanged(String email, BuildContext context) =>
-      context.read<SignInUsecase>().add(EmailChanged(email));
+      context.read<SignUpUsecase>().add(EmailChanged(email));
 
   void _onContinue(BuildContext context) {
     controller.showValidationState();
 
-    context.read<SignInUsecase>().add(const ContinueFromEmailScreen());
+    context.read<SignUpUsecase>().add(const ContinueFromEmailScreen());
   }
 }

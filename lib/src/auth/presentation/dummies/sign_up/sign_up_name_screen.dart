@@ -1,40 +1,44 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_base/src/auth/domain/usecases/sign_in/sign_in_usecase.dart';
+import 'package:project_base/src/auth/domain/usecases/sign_up/sign_up_usecase.dart';
 import 'package:project_base/src/shared/domain/models/base_text_controller.dart';
 import 'package:project_base/src/shared/domain/models/base_text_field.dart';
+import 'package:project_base/src/shared/presentation/widgets/snack_bar.dart';
 import 'package:project_base/src/shared/types/form_validator.dart';
 
-class SignInEmailScreen extends StatefulWidget {
-  const SignInEmailScreen({Key? key}) : super(key: key);
+class SignUpNameScreen extends StatefulWidget {
+  const SignUpNameScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignInEmailScreen> createState() => _SignInEmailScreenState();
+  State<SignUpNameScreen> createState() => _SignUpNameScreenState();
 }
 
-class _SignInEmailScreenState extends State<SignInEmailScreen> {
+class _SignUpNameScreenState extends State<SignUpNameScreen> {
   late final BaseTextFieldController controller;
 
   @override
   void initState() {
     controller = BaseTextFieldController(
       "",
-      validators: FormValidators.email,
+      validators: FormValidators.required,
     );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInUsecase, SignInState>(
+    return BlocConsumer<SignUpUsecase, SignUpState>(
+      listenWhen: (previous, current) =>
+          previous.signUpRequestStatus != current.signUpRequestStatus,
+      listener: _listener,
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Email'),
+            title: const Text('Name'),
             leading: IconButton(
               onPressed: () {
-                context.read<SignInUsecase>().add(const BackFromEmailScreen());
+                context.read<SignUpUsecase>().add(const BackFromNameScreen());
               },
               icon: const Icon(Icons.arrow_back),
             ),
@@ -45,7 +49,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BaseTextField(
-                  hintText: "Email",
+                  hintText: "Name",
                   controller: controller,
                   onSubmitted: (value) => _onContinue(context),
                   onChanged: (value) => _onChanged(value, context),
@@ -62,12 +66,21 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
     );
   }
 
-  void _onChanged(String email, BuildContext context) =>
-      context.read<SignInUsecase>().add(EmailChanged(email));
+  void _listener(BuildContext context, SignUpState state) {
+    state.signUpRequestStatus.maybeMap(
+      orElse: () {},
+      failed: (error) {
+        BaseSnackBar.showNotification(error);
+      },
+    );
+  }
+
+  void _onChanged(String name, BuildContext context) =>
+      context.read<SignUpUsecase>().add(NameChanged(name));
 
   void _onContinue(BuildContext context) {
     controller.showValidationState();
 
-    context.read<SignInUsecase>().add(const ContinueFromEmailScreen());
+    context.read<SignUpUsecase>().add(const SubmitSignUpForm());
   }
 }

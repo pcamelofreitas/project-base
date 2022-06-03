@@ -1,3 +1,5 @@
+import 'package:project_base/src/auth/data/entities/auth_response_entity.dart';
+import 'package:project_base/src/auth/domain/models/auth_response_model.dart';
 import 'package:project_base/src/auth/domain/models/sign_in_form.dart';
 import 'package:project_base/src/shared/data/repositories/api_repository.dart';
 import 'package:project_base/src/shared/errors/http_error.dart';
@@ -34,8 +36,9 @@ class AuthRepository {
     );
   }
 
-  Future<Result> signUp({required signUpForm}) async {
+  Future<Result<AuthResponseModel>> signUp({required signUpForm}) async {
     const String url = 'api/register';
+
     final Result signUpResponse = await _apiRepository.post(
       url: url,
       body: signUpForm.toJson(),
@@ -44,7 +47,12 @@ class AuthRepository {
     return signUpResponse.handle(
       onSuccess: (data) {
         try {
-          return Success(data);
+          AuthResponseEntity authResponseEntity =
+              AuthResponseEntity.fromJson(data);
+
+          AuthResponseModel authResponseModel = authResponseEntity.toDomain();
+
+          return Success(authResponseModel);
         } catch (e) {
           return Failure(HttpUnknownError(msg: e.toString()));
         }
