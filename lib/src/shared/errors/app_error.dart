@@ -17,3 +17,22 @@ abstract class AppError {
         (other as AppError).slug == slug;
   }
 }
+
+class AppUnknownError extends AppError {
+  AppUnknownError({
+    String slug = '',
+    String msg = 'Algo inesperado aconteceu',
+    String stackTrace = '',
+  }) : super(
+          slug: slug,
+          msg: msg,
+          stackTrace: stackTrace,
+        );
+
+  @override
+  String toString() => '''[AppUnknownError]: {
+          slug: $slug,
+          msg: $msg,
+          stackTrace: $stackTrace,
+        }''';
+}
