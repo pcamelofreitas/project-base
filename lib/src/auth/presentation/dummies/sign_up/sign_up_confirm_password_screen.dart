@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_base/src/auth/domain/usecases/sign_up/sign_up_usecase.dart';
 import 'package:project_base/src/shared/domain/models/base_text_controller.dart';
 import 'package:project_base/src/shared/domain/models/base_text_field.dart';
-import 'package:project_base/src/shared/types/form_validator.dart';
 
 class SignUpConfirmPasswordScreen extends StatefulWidget {
   const SignUpConfirmPasswordScreen({Key? key}) : super(key: key);
@@ -55,9 +54,7 @@ class _SignUpConfirmPasswordScreenState
                   onChanged: (value) => _onChanged(value, context),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    _onContinue(context);
-                  },
+                  onPressed: () => _onContinue(context),
                   child: const Text('Continue'),
                 ),
               ],

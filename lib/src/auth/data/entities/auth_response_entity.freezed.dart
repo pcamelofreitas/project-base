@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+AuthResponseEntity _$AuthResponseEntityFromJson(Map<String, dynamic> json) {
+  return _AuthResponseEntity.fromJson(json);
+}
+
 /// @nodoc
 mixin _$AuthResponseEntity {
   int? get id => throw _privateConstructorUsedError;
   String? get token => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AuthResponseEntityCopyWith<AuthResponseEntity> get copyWith =>
       throw _privateConstructorUsedError;
@@ -99,9 +104,12 @@ class __$$_AuthResponseEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_AuthResponseEntity extends _AuthResponseEntity {
   const _$_AuthResponseEntity({this.id, this.token}) : super._();
+
+  factory _$_AuthResponseEntity.fromJson(Map<String, dynamic> json) =>
+      _$$_AuthResponseEntityFromJson(json);
 
   @override
   final int? id;
@@ -122,6 +130,7 @@ class _$_AuthResponseEntity extends _AuthResponseEntity {
             const DeepCollectionEquality().equals(other.token, token));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -133,12 +142,20 @@ class _$_AuthResponseEntity extends _AuthResponseEntity {
   _$$_AuthResponseEntityCopyWith<_$_AuthResponseEntity> get copyWith =>
       __$$_AuthResponseEntityCopyWithImpl<_$_AuthResponseEntity>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AuthResponseEntityToJson(this);
+  }
 }
 
 abstract class _AuthResponseEntity extends AuthResponseEntity {
   const factory _AuthResponseEntity({final int? id, final String? token}) =
       _$_AuthResponseEntity;
   const _AuthResponseEntity._() : super._();
+
+  factory _AuthResponseEntity.fromJson(Map<String, dynamic> json) =
+      _$_AuthResponseEntity.fromJson;
 
   @override
   int? get id => throw _privateConstructorUsedError;

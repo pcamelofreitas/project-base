@@ -51,13 +51,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                   onChanged: (value) => _onChanged(value, context),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    controller.showValidationState();
-
-                    context
-                        .read<SignInUsecase>()
-                        .add(const ContinueFromEmailScreen());
-                  },
+                  onPressed: () => _onContinue(context),
                   child: const Text('Continue'),
                 ),
               ],

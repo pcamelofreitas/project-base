@@ -55,9 +55,7 @@ class _SignUpNameScreenState extends State<SignUpNameScreen> {
                   onChanged: (value) => _onChanged(value, context),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    _onContinue(context);
-                  },
+                  onPressed: () => _onContinue(context),
                   child: const Text('Continue'),
                 ),
               ],

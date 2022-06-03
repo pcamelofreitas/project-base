@@ -47,10 +47,9 @@ class AuthRepository {
     return signUpResponse.handle(
       onSuccess: (data) {
         try {
-          AuthResponseEntity authResponseEntity = AuthResponseEntity(
-            id: data["id"],
-            token: data["token"],
-          );
+          AuthResponseEntity authResponseEntity =
+              AuthResponseEntity.fromJson(data);
+
           AuthResponseModel authResponseModel = authResponseEntity.toDomain();
 
           return Success(authResponseModel);
