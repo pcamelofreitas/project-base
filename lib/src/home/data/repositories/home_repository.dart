@@ -11,10 +11,14 @@ class HomeRepository {
         super();
   final ApiRepository _apiRepository;
 
-  Future<Result<List<UserModel>>> getUsers() async {
+  Future<Result<List<UserModel>>> getUsers({required String page}) async {
     List<UserModel> users = [];
-    Result response = await _apiRepository.get(url: 'api/users');
-    Result responseTwo = await _apiRepository.get(url: 'api/users?page=2');
+    Result response = await _apiRepository.get(
+      url: 'api/users',
+      queryParams: {
+        "page": page,
+      },
+    );
 
     response.handle(
       onSuccess: (data) {
@@ -30,20 +34,22 @@ class HomeRepository {
         return Failure(error);
       },
     );
-    responseTwo.handle(
-      onSuccess: (data) {
-        var userListJson = data['data'];
 
-        for (var user in userListJson) {
-          UserModel userModel = UserEntity.fromJson(user).toDomain();
+    // Result responseTwo = await _apiRepository.get(url: 'api/users?page=2');
+    // responseTwo.handle(
+    //   onSuccess: (data) {
+    //     var userListJson = data['data'];
 
-          users.add(userModel);
-        }
-      },
-      onFailure: (error) {
-        return Failure(error);
-      },
-    );
+    //     for (var user in userListJson) {
+    //       UserModel userModel = UserEntity.fromJson(user).toDomain();
+
+    //       users.add(userModel);
+    //     }
+    //   },
+    //   onFailure: (error) {
+    //     return Failure(error);
+    //   },
+    // );
     return Success(users);
   }
 }

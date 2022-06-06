@@ -18,6 +18,14 @@ class HomeUsecase extends Bloc<HomeEvent, HomeState> {
         super(HomeState.initial()) {
     on<Logout>(_onLogout);
     on<RequestUsers>(_onRequestUsers);
+    on<ChangePage>(_onChangePage);
+  }
+
+  void _onChangePage(
+    ChangePage event,
+    Emitter<HomeState> emit,
+  ) {
+    emit(state.copyWith(page: event.page));
   }
 
   void _onLogout(
@@ -32,7 +40,7 @@ class HomeUsecase extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(userListRequestStatus: const Loading()));
-    Result users = await _homeRepository.getUsers();
+    Result users = await _homeRepository.getUsers(page: state.page);
 
     users.handle(
       onSuccess: (data) {

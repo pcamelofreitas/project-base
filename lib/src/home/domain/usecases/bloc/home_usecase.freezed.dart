@@ -21,6 +21,7 @@ mixin _$HomeEvent {
     required TResult Function() started,
     required TResult Function() logout,
     required TResult Function() requestUsers,
+    required TResult Function(String page) changePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$HomeEvent {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$HomeEvent {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$HomeEvent {
     required TResult Function(_Started value) started,
     required TResult Function(Logout value) logout,
     required TResult Function(RequestUsers value) requestUsers,
+    required TResult Function(ChangePage value) changePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$HomeEvent {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$HomeEvent {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,6 +131,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     required TResult Function() started,
     required TResult Function() logout,
     required TResult Function() requestUsers,
+    required TResult Function(String page) changePage,
   }) {
     return started();
   }
@@ -135,6 +142,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
   }) {
     return started?.call();
   }
@@ -145,6 +153,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -159,6 +168,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(Logout value) logout,
     required TResult Function(RequestUsers value) requestUsers,
+    required TResult Function(ChangePage value) changePage,
   }) {
     return started(this);
   }
@@ -169,6 +179,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
   }) {
     return started?.call(this);
   }
@@ -179,6 +190,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -239,6 +251,7 @@ class _$Logout with DiagnosticableTreeMixin implements Logout {
     required TResult Function() started,
     required TResult Function() logout,
     required TResult Function() requestUsers,
+    required TResult Function(String page) changePage,
   }) {
     return logout();
   }
@@ -249,6 +262,7 @@ class _$Logout with DiagnosticableTreeMixin implements Logout {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
   }) {
     return logout?.call();
   }
@@ -259,6 +273,7 @@ class _$Logout with DiagnosticableTreeMixin implements Logout {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -273,6 +288,7 @@ class _$Logout with DiagnosticableTreeMixin implements Logout {
     required TResult Function(_Started value) started,
     required TResult Function(Logout value) logout,
     required TResult Function(RequestUsers value) requestUsers,
+    required TResult Function(ChangePage value) changePage,
   }) {
     return logout(this);
   }
@@ -283,6 +299,7 @@ class _$Logout with DiagnosticableTreeMixin implements Logout {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
   }) {
     return logout?.call(this);
   }
@@ -293,6 +310,7 @@ class _$Logout with DiagnosticableTreeMixin implements Logout {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -355,6 +373,7 @@ class _$RequestUsers with DiagnosticableTreeMixin implements RequestUsers {
     required TResult Function() started,
     required TResult Function() logout,
     required TResult Function() requestUsers,
+    required TResult Function(String page) changePage,
   }) {
     return requestUsers();
   }
@@ -365,6 +384,7 @@ class _$RequestUsers with DiagnosticableTreeMixin implements RequestUsers {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
   }) {
     return requestUsers?.call();
   }
@@ -375,6 +395,7 @@ class _$RequestUsers with DiagnosticableTreeMixin implements RequestUsers {
     TResult Function()? started,
     TResult Function()? logout,
     TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
     required TResult orElse(),
   }) {
     if (requestUsers != null) {
@@ -389,6 +410,7 @@ class _$RequestUsers with DiagnosticableTreeMixin implements RequestUsers {
     required TResult Function(_Started value) started,
     required TResult Function(Logout value) logout,
     required TResult Function(RequestUsers value) requestUsers,
+    required TResult Function(ChangePage value) changePage,
   }) {
     return requestUsers(this);
   }
@@ -399,6 +421,7 @@ class _$RequestUsers with DiagnosticableTreeMixin implements RequestUsers {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
   }) {
     return requestUsers?.call(this);
   }
@@ -409,6 +432,7 @@ class _$RequestUsers with DiagnosticableTreeMixin implements RequestUsers {
     TResult Function(_Started value)? started,
     TResult Function(Logout value)? logout,
     TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
     required TResult orElse(),
   }) {
     if (requestUsers != null) {
@@ -423,10 +447,164 @@ abstract class RequestUsers implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangePageCopyWith<$Res> {
+  factory _$$ChangePageCopyWith(
+          _$ChangePage value, $Res Function(_$ChangePage) then) =
+      __$$ChangePageCopyWithImpl<$Res>;
+  $Res call({String page});
+}
+
+/// @nodoc
+class __$$ChangePageCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
+    implements _$$ChangePageCopyWith<$Res> {
+  __$$ChangePageCopyWithImpl(
+      _$ChangePage _value, $Res Function(_$ChangePage) _then)
+      : super(_value, (v) => _then(v as _$ChangePage));
+
+  @override
+  _$ChangePage get _value => super._value as _$ChangePage;
+
+  @override
+  $Res call({
+    Object? page = freezed,
+  }) {
+    return _then(_$ChangePage(
+      page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangePage with DiagnosticableTreeMixin implements ChangePage {
+  const _$ChangePage(this.page);
+
+  @override
+  final String page;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.changePage(page: $page)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.changePage'))
+      ..add(DiagnosticsProperty('page', page));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePage &&
+            const DeepCollectionEquality().equals(other.page, page));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(page));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ChangePageCopyWith<_$ChangePage> get copyWith =>
+      __$$ChangePageCopyWithImpl<_$ChangePage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() logout,
+    required TResult Function() requestUsers,
+    required TResult Function(String page) changePage,
+  }) {
+    return changePage(page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? logout,
+    TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
+  }) {
+    return changePage?.call(page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? logout,
+    TResult Function()? requestUsers,
+    TResult Function(String page)? changePage,
+    required TResult orElse(),
+  }) {
+    if (changePage != null) {
+      return changePage(page);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(Logout value) logout,
+    required TResult Function(RequestUsers value) requestUsers,
+    required TResult Function(ChangePage value) changePage,
+  }) {
+    return changePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(Logout value)? logout,
+    TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
+  }) {
+    return changePage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(Logout value)? logout,
+    TResult Function(RequestUsers value)? requestUsers,
+    TResult Function(ChangePage value)? changePage,
+    required TResult orElse(),
+  }) {
+    if (changePage != null) {
+      return changePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangePage implements HomeEvent {
+  const factory ChangePage(final String page) = _$ChangePage;
+
+  String get page => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$ChangePageCopyWith<_$ChangePage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   HomeFlow get flow => throw _privateConstructorUsedError;
   RequestStatus<List<UserModel>> get userListRequestStatus =>
       throw _privateConstructorUsedError;
+  String get page => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -438,7 +616,9 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
   $Res call(
-      {HomeFlow flow, RequestStatus<List<UserModel>> userListRequestStatus});
+      {HomeFlow flow,
+      RequestStatus<List<UserModel>> userListRequestStatus,
+      String page});
 
   $HomeFlowCopyWith<$Res> get flow;
   $RequestStatusCopyWith<List<UserModel>, $Res> get userListRequestStatus;
@@ -456,6 +636,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   $Res call({
     Object? flow = freezed,
     Object? userListRequestStatus = freezed,
+    Object? page = freezed,
   }) {
     return _then(_value.copyWith(
       flow: flow == freezed
@@ -466,6 +647,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.userListRequestStatus
           : userListRequestStatus // ignore: cast_nullable_to_non_nullable
               as RequestStatus<List<UserModel>>,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -492,7 +677,9 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {HomeFlow flow, RequestStatus<List<UserModel>> userListRequestStatus});
+      {HomeFlow flow,
+      RequestStatus<List<UserModel>> userListRequestStatus,
+      String page});
 
   @override
   $HomeFlowCopyWith<$Res> get flow;
@@ -514,6 +701,7 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   $Res call({
     Object? flow = freezed,
     Object? userListRequestStatus = freezed,
+    Object? page = freezed,
   }) {
     return _then(_$_HomeState(
       flow: flow == freezed
@@ -524,6 +712,10 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.userListRequestStatus
           : userListRequestStatus // ignore: cast_nullable_to_non_nullable
               as RequestStatus<List<UserModel>>,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -531,16 +723,21 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
-  const _$_HomeState({required this.flow, required this.userListRequestStatus});
+  const _$_HomeState(
+      {required this.flow,
+      required this.userListRequestStatus,
+      required this.page});
 
   @override
   final HomeFlow flow;
   @override
   final RequestStatus<List<UserModel>> userListRequestStatus;
+  @override
+  final String page;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(flow: $flow, userListRequestStatus: $userListRequestStatus)';
+    return 'HomeState(flow: $flow, userListRequestStatus: $userListRequestStatus, page: $page)';
   }
 
   @override
@@ -549,8 +746,8 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
     properties
       ..add(DiagnosticsProperty('type', 'HomeState'))
       ..add(DiagnosticsProperty('flow', flow))
-      ..add(
-          DiagnosticsProperty('userListRequestStatus', userListRequestStatus));
+      ..add(DiagnosticsProperty('userListRequestStatus', userListRequestStatus))
+      ..add(DiagnosticsProperty('page', page));
   }
 
   @override
@@ -560,14 +757,16 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
             other is _$_HomeState &&
             const DeepCollectionEquality().equals(other.flow, flow) &&
             const DeepCollectionEquality()
-                .equals(other.userListRequestStatus, userListRequestStatus));
+                .equals(other.userListRequestStatus, userListRequestStatus) &&
+            const DeepCollectionEquality().equals(other.page, page));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(flow),
-      const DeepCollectionEquality().hash(userListRequestStatus));
+      const DeepCollectionEquality().hash(userListRequestStatus),
+      const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
@@ -578,14 +777,16 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final HomeFlow flow,
-      required final RequestStatus<List<UserModel>>
-          userListRequestStatus}) = _$_HomeState;
+      required final RequestStatus<List<UserModel>> userListRequestStatus,
+      required final String page}) = _$_HomeState;
 
   @override
   HomeFlow get flow => throw _privateConstructorUsedError;
   @override
   RequestStatus<List<UserModel>> get userListRequestStatus =>
       throw _privateConstructorUsedError;
+  @override
+  String get page => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

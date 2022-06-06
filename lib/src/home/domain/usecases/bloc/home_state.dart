@@ -5,10 +5,12 @@ class HomeState with _$HomeState {
   const factory HomeState({
     required HomeFlow flow,
     required RequestStatus<List<UserModel>> userListRequestStatus,
+    required String page,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState(
         flow: Home(),
         userListRequestStatus: Idle(),
+        page: '1',
       );
 }
 
