@@ -34,22 +34,6 @@ class HomeRepository {
         return Failure(error);
       },
     );
-
-    // Result responseTwo = await _apiRepository.get(url: 'api/users?page=2');
-    // responseTwo.handle(
-    //   onSuccess: (data) {
-    //     var userListJson = data['data'];
-
-    //     for (var user in userListJson) {
-    //       UserModel userModel = UserEntity.fromJson(user).toDomain();
-
-    //       users.add(userModel);
-    //     }
-    //   },
-    //   onFailure: (error) {
-    //     return Failure(error);
-    //   },
-    // );
     return Success(users);
   }
 }
